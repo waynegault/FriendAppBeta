@@ -3,19 +3,21 @@
 // its parent DB\SQL\Mapper class. ORMs sit between the app and the data and oversee CRUD Functions and map PHP object
 // interactions to corresponding backend SQL queries. see https://fatfreeframework.com/3.7/databases#MapperDataStatus
 
-class event extends DB\SQL\Mapper { // DB\SQL\Mapper is a special mapping class component of F3 and at the heart of f3's ORM
+Class event extends DB\SQL\Mapper { // DB\SQL\Mapper is a special mapping class component of F3 and at the heart of f3's ORM
 
     // Map Database---------------------------------------------
 
-    public function __construct(DB\SQL $db){
-        parent::__construct($db,'event');}
+    public function __construct(DB\SQL $db)
+    {
+        parent::__construct($db, 'event');
+    }
 
     // CRUD Model Functions ------------------------------------------
 
-    // Create: save new objects to database function
-    public function newevent() {
+    //Create: save new objects to database function
+        public function newevent() {
         $this->copyfrom('POST');
-        $this->save(); // save new record
+        $this->save();  
     }
     //Retrieve: Get all events
     public function getevents() { //query and retrieve all records from the DB table, results returned as an object.

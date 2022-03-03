@@ -18,25 +18,26 @@
 
 // Create f3 object and load new instance
 $home = '/home/'.get_current_user();
-$f3 = require($home.'/AboveWebRoot/fatfree-master/lib/base.php'); //  Fat Free Framework library files
+$f3 = include $home.'/AboveWebRoot/fatfree-master/lib/base.php'; //  Fat Free Framework library files
 $f3 = Base::instance(); // Establish an instance of Fat Free Framework
 
 //Global variables -
 $f3->config('app/setup.cfg');
-$f3-> mset([
-    'AUTOLOAD' => $home.'/AboveWebRoot/autoload/;'.$home.'/AboveWebRoot/ServerImages/; app/controllers/; app/models/',
+$f3-> mset(
+    ['AUTOLOAD' => $home.'/AboveWebRoot/autoload/;'.$home.'/AboveWebRoot/ServerImages/; app/controllers/; app/models/',
     // F3 will autoload all classes from these 4 locations when needed
      'SITE' => $f3->get('SCHEME') . '://' . $f3->get('HOST') . $f3->get('BASE') . '/',
     'UI' => 'app/views/; app/assets/images/',
     'UPLOADS' => $home.'/AboveWebRoot/ServerImages/']
-        // set folder destination for uploads, away from users
+    // set folder destination for uploads, away from users
 );
 
 // Temp located functions ==============================================================================================
 //======================================================================================================================
 
 // Error handling
-$f3->set('ONERROR', // what to do if something goes wrong.
+$f3->set(// what to do if something goes wrong.
+    'ONERROR', 
     function ($f3) {
         $f3->set('html_title', 'Error: ' . $f3['ERROR']['code']);
         $f3->set('DUMP', catchData($f3['ERROR']));
