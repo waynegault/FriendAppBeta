@@ -1,0 +1,7 @@
+<h1>Images</h1>
+<hr />
+<repeat group="{{ @datalist }}" value="{{ @item }}">
+	<div id="imgdisplay">
+        <img src="{{ @BASE /showImage/@item.id }}" />
+	</div>
+</repeat>

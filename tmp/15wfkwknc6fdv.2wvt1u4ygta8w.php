@@ -1,0 +1,73 @@
+<h1>What changes do you wish?</h1>
+<p>This form is in UpdateUser.html</p>
+<script>
+    // Bring data to dropdown boxes
+    document.getElementById("gender").value = "<?= (trim($user['gender'])) ?>";
+    document.getElementById("hidden").value = "<?= (trim($user['hidden'])) ?>";
+    document.getElementById("dob").value = "<?= (trim($user['dob'])) ?>";
+</script>
+
+<form id="Register" name="Register" enctype="multipart/form-data" method="POST" action="<?= ($BASE) ?>/UpdateUser">
+
+
+    <div id="name">
+        <input hidden name="id" type="text" placeholder="id" id="id" value="<?= ($user['id']) ?>" >
+        <input name="forename" type="text" placeholder="First name" id="forename" value="<?= (trim($user['forename'])) ?>" required size="35" none><br>
+        <input name="surname" type="text" placeholder="Last name" id="surname" size="35" value="<?= (trim($user['surname'])) ?>" /><br>
+        <input name="postcode" type="text" placeholder="Home Postcode" id="postcode" size="35" value="<?= (trim($user['postcode'])) ?>" required />
+    </div>
+
+    <div id="username">
+        <!--    get some regex validation-->
+        <input name="email" type="email" placeholder="Email address (this will be your login)" id="email" size="35" required value="<?= (trim($user['email'])) ?>"/><br>
+
+        <!--    need a method to send email to user confirming their identity (added new field to users - 'confirmed'-->
+    </div>
+
+    <div id="password">
+        <p>Change your password:</p>
+        <input name="oldpassword" type="password" placeholder="Old Password" id="oldpassword" size="35"/><br>
+        <br>
+         <input name="password" type="password" placeholder="New Password (min 5 characters)" id="password" minlength="5" size="35"/>
+        <!--    need to include some password verification process-->
+    </div>
+
+    <div id="sex">
+    <label for="gender">Gender</label><br>
+        <select id="gender" name="gender">
+            <option value="Not disclosed">I don't want to say</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Non-binary">Non-binary</option>
+        </select>
+    </div>
+
+    <div id="dateofbirth">
+    <p>Date of birth </p>
+        <input name="dob" type="date" placeholder="dd-mm-yyy" id="dob" size="30" value="<?= (trim($user['dob'])) ?>"/>
+    </div>
+
+    <div id="picture">
+        <p>Your picture </p>
+        <img src="<?= ($BASE) ?>/Pic/<?= ($user['id']) ?>" width="100" alt="<?= (trim($user['forename'])) ?> <?= (trim($user['surname'])) ?>'s image">
+        <input name="pic_file" type="file" placeholder="Your photo (jpeg, png or gif with size < 2 Mb)', 'image/gif'" id="pic_file" size="30" />
+    </div>
+
+    <div id="facebook">
+        <p>Facebook username </p>
+        <input name="facebook_username" type="text" placeholder="Facebook username" id="facebook_username" size="30"     value="<?= (trim($user['facebook_username'])) ?>" />
+        <br>
+        <!---  some validation... is this you? --->
+    </div>
+
+    <div id="visibility">
+        <label for="hidden">Visibility</label><br>
+        <select id="hidden" name="hidden">
+            <option value="No">Let other people see that I've joined an event</option>
+            <option value="Yes">Hide me from other users seeing I've joined an event</option>
+        </select>
+    </div>
+    <br>
+    <br>
+    <input type="submit" name="Update" value="Update" />
+</form>

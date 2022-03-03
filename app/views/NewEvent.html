@@ -1,0 +1,20 @@
+
+<h1>Enter a New Event</h1>
+<p>This form is in NewEvent.html</p><br>
+<form id="NewEvent" name="NewEvent" method="post" action="{{ @BASE }}/SaveNewEvent">
+    <p>Please suggest a new event:</p>
+    <input name="Title" type="text" placeholder="What is the event called?" id="Title" size="50" /><br><br>
+
+    <p>How do we record the Owner_Id of the person adding this event?</p>
+    <input name="Event_Location" type="text" placeholder="Where is the event?" id="Event_Location" /><br><br>
+    <input name="Event_URL" type="text" placeholder="What is the event URL" id="Event_URL" /><br><br>
+    <p> figure out how to attribute one or more topics.</p>
+    <p>Figure out how to distinguish online URLs and physical locations. Figure out how to calculate a world coordinate capable of enabling distance measures between the person and the event.</p>
+    <input name="Start_TimeStamp" type="text" placeholder="When does the event begin?" id="Start_TimeStamp" /><br><br>
+    <input name="End_TimeStamp" type="text" placeholder="When is the event scheduled to end?" id="End_TimeStamp" /><br><br>
+    <b>Select who would be suitable to come to this event:</b><br>
+    <p>How do we do multiple choice of age categories? ('below 12','12-17','18-30','31-50','51-70','above 70')</p>
+    <p>How do we do multiple choice of gender categories? ('Female', 'Male','Non-binary')</p>
+    <input type="reset">
+ <input type="submit" name="Submit" value="Submit" />
+</form>

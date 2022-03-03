@@ -1,0 +1,12 @@
+MIME-Version: 1.0
+Content-type: text/html; charset={{ @ENCODING }}
+From: {{ @from }}
+To: {{ @to }}
+Subject: {{ @subject }}
+
+<p>Welcome, and thanks for joining {{ @site }}!</p>
+
+
+Will fill this in once I know what to say!
+
+WG

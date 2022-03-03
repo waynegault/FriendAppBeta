@@ -1,0 +1,55 @@
+<p>add upload to Calendar</p>
+
+<p>
+    1. enable edit column only if current user is the owner<br>
+    2. add calendar button to enable this to come up as a dialogue box:</p>
+
+<!--<div class="dropdown" data-view="addToCalendar" data-active-view="true" style="">-->
+<!--        <button id="addToCalendarBtn" data-i18n="[title]addToCalender.title" data-bind="buttonColor:getBrandingInfo().selectedHeaderColor()" class="btn addToCalendar" type="button" data-toggle="dropdown" title="Add to Calendar" style="background-color: rgb(65, 99, 46); border-color: rgb(65, 99, 46);">-->
+<!--            <li role="presentation"><a class="addToCalendar" data-bind="html:calendarName, attr:{id:type, href:calendarLink}" role="menuitem" tabindex="-1" rel="external" id="outlook" href="x; event=">Outlook Calendar</a></li>-->
+
+<!--            <li role="presentation"><a class="addToCalendar" data-bind="html:calendarName, attr:{id:type, href:calendarLink}" role="menuitem" tabindex="-1" rel="external" id="google" href="x;start=x;starttime=x;end=x;endtime=1x;title=x;description=x;location=;timezone=Europe%2FLondon;service=google;date_format=x;all_day_event=x;template=x;alarm=15">Google</a></li>-->
+
+<!--            <li role="presentation"><a class="addToCalendar" data-bind="html:calendarName, attr:{id:type, href:calendarLink}" role="menuitem" tabindex="-1" rel="external" id="appleical" href="/icsCalendar.tmpl?;event=x">iCal</a></li>-->
+
+<!--            <li role="presentation"><a class="addToCalendar" data-bind="html:calendarName, attr:{id:type, href:calendarLink}" role="menuitem" tabindex="-1" rel="external" id="outlookcom" href="https://www.addevent.com/dir/?client=x;start=x;starttime=x;end=x;endtime=x;title=x;description=x;organizer=x;organizer_email=x;timezone=Europe%2FLondonx;service=outlookcom;date_format=x;all_day_event=false;template=x;alarm=15">Outlook.com Calendar</a></li>-->
+<!--            </ul>-->
+<!--        </button>-->
+<!--    </div>-->
+
+
+<table style="width:100%" class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Event</th>
+        <th scope="col">Description</th>
+        <th scope="col">Topic(s)</th>
+        <th scope="col">Organiser</th>
+        <th scope="col">Location</th>
+        <th scope="col">URL</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <repeat group="{{ @event }}" value="{{ @event }}">
+        <tr>
+            <td>{{ trim(@event.event_id) }}</td>
+            <td>{{ trim(@event.title) }}</td>
+            <td>{{ trim(@event.description) }}</td>
+            <td>{{ trim(@event.topics_link_id) }}</td>
+            <td>{{ trim(@event.owner_id) }}</td>
+            <td>{{ trim(@event.event_location) }}</td>
+            <td>{{ trim(@event.event_url) }}</td>
+            <td>{{ trim(@event.start_timestamp) }}</td>
+            <td>{{ trim(@event.end_timestamp) }}</td>
+            <td>
+                <a href="#" class="btn btn-primary"><i class="icon-edit icon-white"></i>Edit</a>
+                <a href="#" class="btn btn-danger"><i class="icon-remove icon-white"></i>Delete</a>
+            </td>
+        </tr>
+    </repeat>
+    </tbody>
+</table>

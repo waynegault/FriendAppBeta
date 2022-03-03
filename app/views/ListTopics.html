@@ -1,0 +1,27 @@
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Topic</th>
+        <th scope="col">Description</th>
+        <th scope="col">Link</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Edit</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <repeat group="{{ @topics }}" value="{{ @topics }}">
+        <tr>
+            <td>{{ trim(@topics.topic_id) }}</td>
+            <td>{{ trim(@topics.topic_name) }}</td>
+            <td>{{ trim(@topics.description) }}</td>
+            <td>{{ trim(@topics.topic_url) }}</td>
+            <td>{{ trim(@topics.owner_id) }}</td>
+            <td><a href="{{ @BASE.'/edittopic/'. @topics.topic_id }}" class="btn btn-primary"><i class="icon-edit icon-white"></i>Edit</a>
+                <a href="{{ @BASE.'/deletetopic/'. @topics.topic_id }}" class="btn btn-danger"><i class="icon-remove icon-white"></i>Delete</a></td>
+
+        </tr>
+    </repeat>
+    </tbody>
+</table>

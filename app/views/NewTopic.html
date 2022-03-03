@@ -1,0 +1,13 @@
+
+    <h1>Enter a New Topic</h1>
+<p>This form is in NewTopic.html</p><br>
+<form id="NewTopic" name="NewTopic" method="post" action="{{ @BASE }}/SaveNewTopic">
+    <p>Please suggest a new topic:</p>
+    <input required name="topic_name" type="text" placeholder="What is the topic called?" id="topic_tame" size="60"><br>
+    <textarea name="description" type="text" placeholder="What the topic is about?" id="description" rows="5" cols="60">
+     Please describe your topic. what's it about?
+        </textarea>
+    <input name="Topic_URL" type="text" placeholder="Please provide a link to a web page that tells readers more about the topic" id="Topic_URL" size="60" /><br>
+    <input type="submit" name="Submit" value="Submit" ><br>
+    <input type="reset">
+</form>
